@@ -4,9 +4,22 @@
   
     
     <entry>
-      <title>my-first-blog</title>
-      <link href="/2020/07/03/my-first-blog/"/>
-      <url>/2020/07/03/my-first-blog/</url>
+      <title>我的第二篇博客-界面优化</title>
+      <link href="/2020/07/03/wo-de-di-er-pian-bo-ke-jie-mian-you-hua/"/>
+      <url>/2020/07/03/wo-de-di-er-pian-bo-ke-jie-mian-you-hua/</url>
+      
+        <content type="html"><![CDATA[<p>参考网址：<a href="https://www.jianshu.com/p/d0396c0a166d" target="_blank" rel="noopener">https://www.jianshu.com/p/d0396c0a166d</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>我的第一篇博客-搭建博客</title>
+      <link href="/2020/07/03/wo-de-di-yi-pian-bo-ke-da-jian-bo-ke/"/>
+      <url>/2020/07/03/wo-de-di-yi-pian-bo-ke-da-jian-bo-ke/</url>
       
         <content type="html"><![CDATA[<h1 id="我的第一篇博客"><a href="#我的第一篇博客" class="headerlink" title="我的第一篇博客"></a>我的第一篇博客</h1><p>搭建博客的过程详见<a href="http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa#shang-chuan-zhi-qian" target="_blank" rel="noopener" title="使用hexo+github搭建免费个人博客详细教程">http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa#shang-chuan-zhi-qian</a></p><p><img src="https://image.baidu.com/search/detail?ct=503316480&amp;z=0&amp;ipn=d&amp;word=%E5%9B%BE%E7%89%87&amp;step_word=&amp;hs=0&amp;pn=8&amp;spn=0&amp;di=161920&amp;pi=0&amp;rn=1&amp;tn=baiduimagedetail&amp;is=0%2C0&amp;istype=0&amp;ie=utf-8&amp;oe=utf-8&amp;in=&amp;cl=2&amp;lm=-1&amp;st=undefined&amp;cs=137628589%2C3436980029&amp;os=1774711515%2C1975955050&amp;simid=3255550860%2C4125806939&amp;adpicid=0&amp;lpn=0&amp;ln=1856&amp;fr=&amp;fmq=1593769048092_R&amp;fm=&amp;ic=undefined&amp;s=undefined&amp;hd=undefined&amp;latest=undefined&amp;copyright=undefined&amp;se=&amp;sme=&amp;tab=0&amp;width=undefined&amp;height=undefined&amp;face=undefined&amp;ist=&amp;jit=&amp;cg=&amp;bdtype=0&amp;oriquery=&amp;objurl=http%3A%2F%2Fdmimg.5054399.com%2Fallimg%2Fpkm%2Fpk%2F13.jpg&amp;fromurl=ippr_z2C%24qAzdH3FAzdH3F14_z%26e3B9nll_z%26e3Bv54AzdH3Ffijgqtkw5kjtAzdH3Fp7rtwgAzdH3Fda888dd9-mbbnb-8d_z%26e3Bip4s&amp;gsm=9&amp;rpstart=0&amp;rpnum=0&amp;islist=&amp;querylist=&amp;force=undefined" alt=""></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
