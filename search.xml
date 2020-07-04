@@ -4,17 +4,17 @@
   
     
     <entry>
-      <title>test![4aa88747b7d38d46](G:\Y\Pictures\4aa88747b7d38d46.jpg)</title>
-      <link href="/2020/07/04/test/"/>
-      <url>/2020/07/04/test/</url>
+      <title>003-博客图片上传</title>
+      <link href="/2020/07/04/003-bo-ke-zhong-tu-pian-xian-shi/"/>
+      <url>/2020/07/04/003-bo-ke-zhong-tu-pian-xian-shi/</url>
       
-        <content type="html"><![CDATA[<h1 id="MD编辑器的测试"><a href="#MD编辑器的测试" class="headerlink" title="MD编辑器的测试"></a>MD编辑器的测试</h1><p>这是用typora编辑的一篇测试文章</p><p>[toc]</p><h4 id="代码测试："><a href="#代码测试：" class="headerlink" title="代码测试："></a>代码测试：</h4><p><code>print("hello world!")</code></p><h4 id="超链接测试："><a href="#超链接测试：" class="headerlink" title="超链接测试："></a>超链接测试：</h4><p><a href="https://blog.csdn.net/qq_42306435/article/details/87103196" target="_blank" rel="noopener">关于typora的教程</a></p><h4 id="图像测试："><a href="#图像测试：" class="headerlink" title="图像测试："></a>图像测试：</h4><p>本地：</p><p><img src="G:%5CY%5CPictures%5C4aa88747b7d38d46.jpg" alt="4aa88747b7d38d46"></p><h4 id="表格测试："><a href="#表格测试：" class="headerlink" title="表格测试："></a>表格测试：</h4><table><thead><tr><th>性别</th><th>姓名</th></tr></thead><tbody><tr><td>男</td><td>小明</td></tr></tbody></table><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h1 id="Typora-hexo图片路径问题"><a href="#Typora-hexo图片路径问题" class="headerlink" title="Typora + hexo图片路径问题"></a>Typora + hexo图片路径问题</h1><h2 id="1-Typora"><a href="#1-Typora" class="headerlink" title="1. Typora"></a>1. Typora</h2><p>用什么样的markdown编辑器，这个网上没有明确的答案，我就选了一个比较大众的软件Typora，下载安装即可以使用，<a href="https://www.typora.io/" target="_blank" rel="noopener">下载路径</a></p><p>小白第一次使用啥也不懂，就跟写word一样写了上一篇，上传后可以发现图片没有显示<img src="/images/003-%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA/image-20200704172658018.png" alt="image-20200704172658018"></p><h2 id="2-图片路径"><a href="#2-图片路径" class="headerlink" title="2. 图片路径"></a>2. 图片路径</h2><p>于是查找教程，修改方法如下：</p><h3 id="1-修改路径"><a href="#1-修改路径" class="headerlink" title="1. 修改路径"></a>1. 修改路径</h3><p>在Typora 中依次找到 文件 - 偏好设置 - 图像，选择 插入图片时复制到指定路径；这时需要在hexo的根目录下的source中新建一个images文件夹用来存放博客中的图片（但我感觉所有图片都放在里面有点乱）</p><p><img src="/images/003-%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA/image-20200704173028963.png" alt="image-20200704173028963"></p><h3 id="2-设置图像根目录"><a href="#2-设置图像根目录" class="headerlink" title="2. 设置图像根目录"></a>2. 设置图像根目录</h3><p>在 格式 - 图像 - 设置图像根目录 ，将根目录设置成hexo/source即可</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       
         <tags>
             
-            <tag> test </tag>
+            <tag> 初识博客 </tag>
             
         </tags>
       
@@ -23,26 +23,57 @@
     
     
     <entry>
-      <title>我的第二篇博客-界面优化</title>
-      <link href="/2020/07/03/wo-de-di-er-pian-bo-ke-jie-mian-you-hua/"/>
-      <url>/2020/07/03/wo-de-di-er-pian-bo-ke-jie-mian-you-hua/</url>
+      <title>002-markdown编辑器的测试</title>
+      <link href="/2020/07/04/002-markdown-bian-ji-qi-test/"/>
+      <url>/2020/07/04/002-markdown-bian-ji-qi-test/</url>
       
-        <content type="html"><![CDATA[<p>参考网址：<a href="https://www.jianshu.com/p/d0396c0a166d" target="_blank" rel="noopener">https://www.jianshu.com/p/d0396c0a166d</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h1 id="MD编辑器的测试"><a href="#MD编辑器的测试" class="headerlink" title="MD编辑器的测试"></a>MD编辑器的测试</h1><p>这是用typora编辑的一篇测试文章</p><p>[toc]</p><h4 id="代码测试："><a href="#代码测试：" class="headerlink" title="代码测试："></a>代码测试：</h4><p><code>print("hello world!")</code></p><h4 id="超链接测试："><a href="#超链接测试：" class="headerlink" title="超链接测试："></a>超链接测试：</h4><p><a href="https://blog.csdn.net/qq_42306435/article/details/87103196" target="_blank" rel="noopener">关于typora的教程</a></p><h4 id="图像测试："><a href="#图像测试：" class="headerlink" title="图像测试："></a>图像测试：</h4><p>本地：</p><p><img src="G:%5CY%5CPictures%5C4aa88747b7d38d46.jpg" alt="4aa88747b7d38d46"></p><h4 id="表格测试："><a href="#表格测试：" class="headerlink" title="表格测试："></a>表格测试：</h4><table><thead><tr><th>性别</th><th>姓名</th></tr></thead><tbody><tr><td>男</td><td>小明</td></tr></tbody></table><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> 初识博客 </tag>
+            
+        </tags>
       
     </entry>
     
     
     
     <entry>
-      <title>我的第一篇博客-搭建博客</title>
-      <link href="/2020/07/03/wo-de-di-yi-pian-bo-ke-da-jian-bo-ke/"/>
-      <url>/2020/07/03/wo-de-di-yi-pian-bo-ke-da-jian-bo-ke/</url>
+      <title>001-界面优化</title>
+      <link href="/2020/07/03/001-jie-mian-you-hua/"/>
+      <url>/2020/07/03/001-jie-mian-you-hua/</url>
       
-        <content type="html"><![CDATA[<h1 id="我的第一篇博客"><a href="#我的第一篇博客" class="headerlink" title="我的第一篇博客"></a>我的第一篇博客</h1><p>搭建博客的过程详见<a href="http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa#shang-chuan-zhi-qian" target="_blank" rel="noopener" title="使用hexo+github搭建免费个人博客详细教程">http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa#shang-chuan-zhi-qian</a></p><p><img src="https://image.baidu.com/search/detail?ct=503316480&amp;z=0&amp;ipn=d&amp;word=%E5%9B%BE%E7%89%87&amp;step_word=&amp;hs=0&amp;pn=8&amp;spn=0&amp;di=161920&amp;pi=0&amp;rn=1&amp;tn=baiduimagedetail&amp;is=0%2C0&amp;istype=0&amp;ie=utf-8&amp;oe=utf-8&amp;in=&amp;cl=2&amp;lm=-1&amp;st=undefined&amp;cs=137628589%2C3436980029&amp;os=1774711515%2C1975955050&amp;simid=3255550860%2C4125806939&amp;adpicid=0&amp;lpn=0&amp;ln=1856&amp;fr=&amp;fmq=1593769048092_R&amp;fm=&amp;ic=undefined&amp;s=undefined&amp;hd=undefined&amp;latest=undefined&amp;copyright=undefined&amp;se=&amp;sme=&amp;tab=0&amp;width=undefined&amp;height=undefined&amp;face=undefined&amp;ist=&amp;jit=&amp;cg=&amp;bdtype=0&amp;oriquery=&amp;objurl=http%3A%2F%2Fdmimg.5054399.com%2Fallimg%2Fpkm%2Fpk%2F13.jpg&amp;fromurl=ippr_z2C%24qAzdH3FAzdH3F14_z%26e3B9nll_z%26e3Bv54AzdH3Ffijgqtkw5kjtAzdH3Fp7rtwgAzdH3Fda888dd9-mbbnb-8d_z%26e3Bip4s&amp;gsm=9&amp;rpstart=0&amp;rpnum=0&amp;islist=&amp;querylist=&amp;force=undefined" alt=""></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h1 id="还是参考的大神的"><a href="#还是参考的大神的" class="headerlink" title="还是参考的大神的"></a>还是参考的大神的</h1><p>就是喜欢花里胡哨</p><p>为了表示对开发者劳动的尊敬，博客内依然留着<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener">开发者bilnkfox</a>的github的链接</p><p>参考网址：<a href="https://www.jianshu.com/p/d0396c0a166d" target="_blank" rel="noopener">https://www.jianshu.com/p/d0396c0a166d</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> 初识博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>000-搭建博客</title>
+      <link href="/2020/07/03/000-da-jian-bo-ke/"/>
+      <url>/2020/07/03/000-da-jian-bo-ke/</url>
+      
+        <content type="html"><![CDATA[<h1 id="我的第一篇博客"><a href="#我的第一篇博客" class="headerlink" title="我的第一篇博客"></a>我的第一篇博客</h1><p><img src="../images/000-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/5.jpg" alt="5"></p><p><strong>我也不知道为什么这样建博客，反正干就完了！</strong></p><p>搭建博客的过程详见<a href="http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa#shang-chuan-zhi-qian" target="_blank" rel="noopener" title="使用hexo+github搭建免费个人博客详细教程">http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa#shang-chuan-zhi-qian</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 初识博客 </tag>
+            
+        </tags>
       
     </entry>
     
