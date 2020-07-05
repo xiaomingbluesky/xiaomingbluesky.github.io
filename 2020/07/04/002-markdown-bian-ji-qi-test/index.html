@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="002-markdown编辑器的测试, 小明的天空格外蓝">
+    <meta name="keywords" content="002-markdown编辑器的测试, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="看见更美好">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -39,7 +39,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="/images/loading.png" data-original="/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">小明的天空格外蓝</span>
                 </a>
@@ -138,7 +138,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/images/loading.png" data-original="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">小明的天空格外蓝</div>
         <div class="logo-desc">
@@ -467,7 +467,7 @@
 <h4 id="代码测试："><a href="#代码测试：" class="headerlink" title="代码测试："></a>代码测试：</h4><p><code>print("hello world!")</code></p>
 <h4 id="超链接测试："><a href="#超链接测试：" class="headerlink" title="超链接测试："></a>超链接测试：</h4><p><a href="https://blog.csdn.net/qq_42306435/article/details/87103196" target="_blank" rel="noopener">关于typora的教程</a></p>
 <h4 id="图像测试："><a href="#图像测试：" class="headerlink" title="图像测试："></a>图像测试：</h4><p>本地：</p>
-<p><img src="G:%5CY%5CPictures%5C4aa88747b7d38d46.jpg" alt="4aa88747b7d38d46"></p>
+<p><img src="/images/loading.png" data-original="G:%5CY%5CPictures%5C4aa88747b7d38d46.jpg" alt="4aa88747b7d38d46"></p>
 <h4 id="表格测试："><a href="#表格测试：" class="headerlink" title="表格测试："></a>表格测试：</h4><table>
 <thead>
 <tr>
@@ -692,10 +692,10 @@
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="/images/loading.png" data-original="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="/images/loading.png" data-original="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -1001,7 +1001,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="003-博客图片上传">
+                        <img src="/images/loading.png" data-original="/medias/featureimages/17.jpg" class="responsive-img" alt="003-博客图片上传">
                         
                         <span class="card-title">003-博客图片上传</span>
                     </div>
@@ -1047,7 +1047,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="001-界面优化">
+                        <img src="/images/loading.png" data-original="/medias/featureimages/0.jpg" class="responsive-img" alt="001-界面优化">
                         
                         <span class="card-title">001-界面优化</span>
                     </div>
@@ -1456,6 +1456,11 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>

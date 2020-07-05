@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="friends, 小明的天空格外蓝">
+    <meta name="keywords" content="friends, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="看见更美好">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -39,7 +39,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="/images/loading.png" data-original="/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">小明的天空格外蓝</span>
                 </a>
@@ -138,7 +138,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/images/loading.png" data-original="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">小明的天空格外蓝</div>
         <div class="logo-desc">
@@ -551,7 +551,7 @@
                             <div class="card frind-card1">
                                 <div class="frind-ship">
                                     <div class="title">
-                                        <img src="http://image.luokangyuan.com/1_qq_27922023.jpg" alt="img">
+                                        <img src="/images/loading.png" data-original="http://image.luokangyuan.com/1_qq_27922023.jpg" alt="img">
                                         <div>
                                             <h1 class="friend-name">码酱</h1>
                                             <p style="position: relative;top: -35px;">我不是大佬，只是在追寻大佬的脚步</p>
@@ -572,7 +572,7 @@
                             <div class="card frind-card2">
                                 <div class="frind-ship">
                                     <div class="title">
-                                        <img src="http://image.luokangyuan.com/4027734.jpeg" alt="img">
+                                        <img src="/images/loading.png" data-original="http://image.luokangyuan.com/4027734.jpeg" alt="img">
                                         <div>
                                             <h1 class="friend-name">闪烁之狐</h1>
                                             <p style="position: relative;top: -35px;">编程界大佬，技术牛，人还特别好，不懂的都可以请教大佬</p>
@@ -593,7 +593,7 @@
                             <div class="card frind-card3">
                                 <div class="frind-ship">
                                     <div class="title">
-                                        <img src="http://image.luokangyuan.com/avatar.jpg" alt="img">
+                                        <img src="/images/loading.png" data-original="http://image.luokangyuan.com/avatar.jpg" alt="img">
                                         <div>
                                             <h1 class="friend-name">ja_rome</h1>
                                             <p style="position: relative;top: -35px;">平凡的脚步也可以走出伟大的行程</p>
@@ -1162,6 +1162,11 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],e=void 0,0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
