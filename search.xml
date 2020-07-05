@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>006-基于RS和GIS的岸线提取（二）</title>
+      <link href="/2020/07/05/006-ji-yu-rs-he-gis-de-an-xian-ti-qu-er/"/>
+      <url>/2020/07/05/006-ji-yu-rs-he-gis-de-an-xian-ti-qu-er/</url>
+      
+        <content type="html"><![CDATA[<h1 id="基于RS和GIS的岸线提取（二）"><a href="#基于RS和GIS的岸线提取（二）" class="headerlink" title="基于RS和GIS的岸线提取（二）"></a>基于RS和GIS的岸线提取（二）</h1><h2 id="一、思路梳理"><a href="#一、思路梳理" class="headerlink" title="一、思路梳理"></a>一、思路梳理</h2><ol><li><p>从<strong>GEE</strong>上下载完1984-2018年的影像数据（下载的影像在GEE上USGS已经进行了预处理：大气几何等校正，可以直接使用）</p></li><li><p>从GEE上下载完shp0.62的MNDWI的水指数矢量图象</p></li><li><p>正式开始提取前需要跟文献上的数据做一下<strong>验证</strong>：</p><p>​    1) 拿2010的影像数据做缨帽变换</p><p>​    2）变换后的图像做非监督分类（15-20类摸索）</p><p>​    3）按照分类的结果画ROI，陆地、高潮滩、中潮滩、低潮滩和水体，再进行监督分类</p><p>​    4）将分类结果和文献做对比，和2中提取的瞬时水边线做对比，瞬时水边线大部分应该在一般高潮线外</p></li><li><p>验证不通过的话通过修改roi进行调整</p></li><li><p>验证通过的话正式开始提取</p><p>1）影像在ENVI中做缨帽变换实在太慢了，需要批量IDL编程实现</p><p>2）非监督分类也可以编程实现</p><p>3）监督分类只能人工<strong>（费时费力）</strong></p><p>4）提取一般高潮线也只能人工</p><p>（<em>note: 这种方法提取35年的岸线至少需要4天时间！！！</em>）</p></li></ol><h2 id="二、验证过程"><a href="#二、验证过程" class="headerlink" title="二、验证过程"></a>二、验证过程</h2><ol><li><h3 id="envi加载L5的2010年的遥感影像（432显示）"><a href="#envi加载L5的2010年的遥感影像（432显示）" class="headerlink" title="envi加载L5的2010年的遥感影像（432显示）"></a>envi加载L5的2010年的遥感影像（432显示）</h3><p><img src="/images/006-%E5%9F%BA%E4%BA%8ERS%E5%92%8CGIS%E7%9A%84%E5%B2%B8%E7%BA%BF%E6%8F%90%E5%8F%96%EF%BC%88%E4%BA%8C%EF%BC%89/image-20200705113914981.png" alt="image-20200705113914981"></p></li><li><h3 id="缨帽变换（Tasseled-Cap）"><a href="#缨帽变换（Tasseled-Cap）" class="headerlink" title="缨帽变换（Tasseled Cap）"></a>缨帽变换（Tasseled Cap）</h3><p><img src="/images/006-%E5%9F%BA%E4%BA%8ERS%E5%92%8CGIS%E7%9A%84%E5%B2%B8%E7%BA%BF%E6%8F%90%E5%8F%96%EF%BC%88%E4%BA%8C%EF%BC%89/image-20200705114122849.png" alt="image-20200705114122849"></p><p>缨帽变换我感觉其实跟主成分分析差不多，只不过缨帽变换后的前三个波段有的各自的定义：亮度、绿度和湿度。所以通过缨帽变换可以跟好的识别高潮滩和中潮滩</p></li><li><h3 id="非监督分类"><a href="#非监督分类" class="headerlink" title="非监督分类"></a>非监督分类</h3><p><img src="/images/006-%E5%9F%BA%E4%BA%8ERS%E5%92%8CGIS%E7%9A%84%E5%B2%B8%E7%BA%BF%E6%8F%90%E5%8F%96%EF%BC%88%E4%BA%8C%EF%BC%89/image-20200705114518999.png" alt="image-20200705114518999"></p><p>依次试了分成7、11、12、17类，感觉效果都不怎么样，很乱，直接在上面画ROI的话也看不太清，所以这一步可以略过</p></li><li><h3 id="监督分类"><a href="#监督分类" class="headerlink" title="监督分类"></a>监督分类</h3><p>直接在缨帽变换后图像上进行监督分类，分为水体、陆地、高潮滩和中低潮滩，分类结果和<em>郭文</em>论文中的相近，但这里通过缨帽变换进行的监督分类，精度应该跟高。<img src="/images/006-%E5%9F%BA%E4%BA%8ERS%E5%92%8CGIS%E7%9A%84%E5%B2%B8%E7%BA%BF%E6%8F%90%E5%8F%96%EF%BC%88%E4%BA%8C%EF%BC%89/image-20200705114800633.png" alt="image-20200705114800633"></p><p><img src="/images/006-%E5%9F%BA%E4%BA%8ERS%E5%92%8CGIS%E7%9A%84%E5%B2%B8%E7%BA%BF%E6%8F%90%E5%8F%96%EF%BC%88%E4%BA%8C%EF%BC%89/image-20200705113802275.png" alt="image-20200705113802275"></p></li></ol><p>继续顺着把<strong>2010</strong>年的岸线提取出来</p><h2 id="三、瞬时水边线的提取"><a href="#三、瞬时水边线的提取" class="headerlink" title="三、瞬时水边线的提取"></a>三、瞬时水边线的提取</h2><p>将GEE中导出来的提取出来的每年的面积最大矢量图的Collection处理成每年一期的清晰的岸线数据，以下步骤皆在<strong>ArcGIS</strong>中完成，步骤如下：</p><p>1.右键图层合集，打开属性表，选择2010年，关闭属性表；</p><p>2.右键图层合集，数据 - 导出数据 - 只导出选中数据 ，存到一个文件夹中即可，会自动打开导出的2010年图层（面）；</p><p>3.将面图层转化为线图层：打开工具箱 - 数据管理工具 - 要素 - 要素转线，然后按照提示输入要素输出要素（<strong>容差：100m</strong>，这个地方可以不改，但转化出来很多锯齿状，容差100m经过我的对比，可以起到线的概化作用（如下图的2位置），对大尺度研究影响不大，影响到的就是1位置，会向右偏移，但每张图都这样处理的话，相对改变是不大的）<img src="/images/006-%E5%9F%BA%E4%BA%8ERS%E5%92%8CGIS%E7%9A%84%E5%B2%B8%E7%BA%BF%E6%8F%90%E5%8F%96%EF%BC%88%E4%BA%8C%EF%BC%89/image-20200705162538476.png" alt="image-20200705162538476"></p><p>4.编辑输出的线图层，比对遥感影像形成闭合线作为水边线</p><p>编辑规则如下：</p><p>1）选择最外围的线，因为是瞬时水边线；</p><p>2）明显的人工岸线要重新做线，主要集中在如图区域</p><p><img src="/images/006-%E5%9F%BA%E4%BA%8ERS%E5%92%8CGIS%E7%9A%84%E5%B2%B8%E7%BA%BF%E6%8F%90%E5%8F%96%EF%BC%88%E4%BA%8C%EF%BC%89/image-20200705164405926.png" alt="image-20200705164405926"></p><p>3）河流出海的位置截平，同周围岸线</p><ol start="5"><li>选择要素，选择合并的水边线，导出所选数据为瞬时水边线</li></ol><p><img src="/images/006-%E5%9F%BA%E4%BA%8ERS%E5%92%8CGIS%E7%9A%84%E5%B2%B8%E7%BA%BF%E6%8F%90%E5%8F%96%EF%BC%88%E4%BA%8C%EF%BC%89/image-20200705164833182-1593938914342.png" alt="image-20200705164833182"></p><p>上图即为提取的黄河三角洲2010年的瞬时水边线</p><h2 id="四、一般高潮线的提取"><a href="#四、一般高潮线的提取" class="headerlink" title="四、一般高潮线的提取"></a>四、一般高潮线的提取</h2><p>继续提取一般高潮线：</p><p>1.将提取的瞬时水边线的数据<strong>复制</strong>一份，因为我们提取一般高潮线时不需要全部提取，只提取非人工岸线部分即可（即除了上图中标注的人工岸线外的其他部分，不同年份区域有所不一样）</p><p>2.将监督分类的结果放进<strong>ARCGIS</strong>处理</p><p><img src="/images/006-%E5%9F%BA%E4%BA%8ERS%E5%92%8CGIS%E7%9A%84%E5%B2%B8%E7%BA%BF%E6%8F%90%E5%8F%96%EF%BC%88%E4%BA%8C%EF%BC%89/image-20200705172333424-1593941014843.png" alt="image-20200705172333424"></p><p>一般高潮线如上图所示</p><p><strong>最后只需要将瞬时水边线和一般高潮线面积取平均即可粗略的作为潮汐校正的结果。</strong></p><pre><code>note: 这个过程一点都不程序员啊，费时费力，搬砖一样，最好还是用IDL或者GEE等手段让过程自动化程度高一点</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 遥感 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>005-IDL对遥感数据进行批处理</title>
+      <link href="/2020/07/05/005-idl-dui-yao-gan-shu-ju-jin-xing-pi-chu-li/"/>
+      <url>/2020/07/05/005-idl-dui-yao-gan-shu-ju-jin-xing-pi-chu-li/</url>
+      
+        <content type="html"><![CDATA[<p>啥也没有呢还</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 遥感 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>004-基于RS和GIS提取岸线（一）</title>
       <link href="/2020/07/04/004-ji-yu-rs-he-gis-ti-qu-an-xian-yi/"/>
       <url>/2020/07/04/004-ji-yu-rs-he-gis-ti-qu-an-xian-yi/</url>
