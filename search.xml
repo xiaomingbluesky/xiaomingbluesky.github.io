@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>026-ArcGIS中数字化扫描图</title>
+      <link href="/2021/04/12/026-arcgis-zhong-shu-zi-hua-sao-miao-tu/"/>
+      <url>/2021/04/12/026-arcgis-zhong-shu-zi-hua-sao-miao-tu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="ArcGIS中数字化扫描图"><a href="#ArcGIS中数字化扫描图" class="headerlink" title="ArcGIS中数字化扫描图"></a>ArcGIS中数字化扫描图</h1><h2 id="1-需求"><a href="#1-需求" class="headerlink" title="1. 需求"></a>1. 需求</h2><p>师兄要求数字化一张胶州湾的水深图（水深图通过档案室借阅并扫描）</p><h2 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h2><p>1、找一张具有经纬网经度较高的地图进行扫描存为电子版</p><p>2、将电子版图片导入ArcGIS，对该图进行地理配准，在工具栏空白处右键勾选Georeferencing(地理配准)，在工具栏打开，就可以打控制点了，使用Add Control Points打控制点，控制点尽量打在经线和纬线的交点，方便输入经纬度进行地理配准将经度输入Xmap,纬度输入Ymap，至少使用四个点进行配准，均方根误差小于4，将配准好的点保存为TXT文本。然后将地理配准好的图另存为底图（data-export data ），以后的所有操作均在这张地理配准好的底图上进行。</p><p>3、对底图进行定义地理坐标Arc Toolbox—Date Management—projections and Transformations—Define Projection，就可以定义坐标了，我使用了西安80，然后进行投影，投影使用Project Raster,选用墨卡托投影，将底图投影好，变形不大就可以开始数字化了</p><p>4、数字化点的时候发现点也有很多等级，要将点的等级进行显示目前想到了两个方法，一是所有的点打在同一个图层上，一定要在图层中定义一个字段进行分类，然后显示时分层显示，二是将每一个类别的点放在同一个图层中，就需要定义多个图层。右键文件夹—New—Shapefile—定义名称，选择点线面—Edit—导入配准好的底图的地理坐标级投影坐标—激活Editor就可以开始数字化点线面了stat Editor，将点线面打好后一定要Stop Editor。然后在图层那添加字段Open Attributer table—Add field—输入需要的属性就可以添加字段了，进行计算或名称显示。右键勾选Labeling使用第一个工具就可以对显示的字段进行显示如字号，颜色进行调整。</p><p>5、点线面都数字化好，就要进行改错了，先新建数据库和数据集，然后往数据集里导入import需要拓扑的线和面，右键数据集—New—Topology—选择要素就可以建立拓扑了，把拓扑的图层显示，然后将拓扑点放大用对应的工具进行改错。完成拓扑改错后就可以进行地图输出了。 </p><p>6、地图输出，首先要定义输出纸张的大小Filel—Page and Print Setup就可以在这里选择关于纸张的各种条件了，选择A4纸。将做好的地图调整合适，然后insert下有指北针，比例尺，图例都可以从这里添加到图上，调整好大小和位置，最后就是将地图半场gpeg 格式的图片file—exportMap就可以输出地图了，注意保存的格式</p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/images/026-ArcGIS%E4%B8%AD%E6%95%B0%E5%AD%97%E5%8C%96%E6%89%AB%E6%8F%8F%E5%9B%BE/image-20210412221022154.png" alt="需要数字化的图" style="zoom:50%;"><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> ArcGIS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>025-hexo在新旧电脑上的迁移</title>
       <link href="/2020/11/21/025-hexo-zai-xin-jiu-dian-nao-shang-de-qian-yi/"/>
       <url>/2020/11/21/025-hexo-zai-xin-jiu-dian-nao-shang-de-qian-yi/</url>
