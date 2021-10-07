@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://suxiaoming.tech/2021/10/07/041-zi-ran-duan-dian-fa-chu-li-shu-xing-biao-shu-ju/</loc>
+    <lastmod>2021-10-07</lastmod>
+  </url>
+  <url>
+    <loc>http://suxiaoming.tech/2021/10/07/042-li-yong-git-jiang-zi-ji-de-xiang-mu-shang-chuan-dao-github/</loc>
+    <lastmod>2021-10-07</lastmod>
+  </url>
+  <url>
+    <loc>http://suxiaoming.tech/2020/08/05/021-xiao-ming-de-tian-kong-ge-wai-lan/</loc>
+    <lastmod>2021-10-03</lastmod>
+  </url>
+  <url>
     <loc>http://suxiaoming.tech/2021/09/23/039-li-yong-geemap-jin-xing-modis-yun-liang-shai-xuan/</loc>
     <lastmod>2021-10-03</lastmod>
   </url>
@@ -75,10 +87,6 @@
   <url>
     <loc>http://suxiaoming.tech/2020/08/07/022-yong-rstudio-zhong-de-ggplot2-bao-hua-chu-hao-kan-de-tu/</loc>
     <lastmod>2020-08-07</lastmod>
-  </url>
-  <url>
-    <loc>http://suxiaoming.tech/2020/08/05/021-xiao-ming-de-tian-kong-ge-wai-lan/</loc>
-    <lastmod>2020-08-05</lastmod>
   </url>
   <url>
     <loc>http://suxiaoming.tech/2020/08/02/020-qgis-zhuan-ti-zhi-tu/</loc>
